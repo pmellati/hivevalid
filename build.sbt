@@ -17,7 +17,7 @@ lazy val Version = new {
 lazy val hivevalid = project
   .in(file("."))
   .settings(
-    version := "0.1.5",
+    version := "0.2",
     publishMavenStyle := false,
 
     scalaVersion := Version.scala,
@@ -45,6 +45,7 @@ lazy val hivevalid = project
 
     libraryDependencies ++= Seq(
       "org.scalaz" %% "scalaz-core" % Version.scalaz,
+      "org.specs2" %% "specs2-core" % "3.8.5" % "provided",
       noHadoop("org.apache.hadoop" % "hadoop-client" % Version.hadoop),
       noHadoop("org.apache.hive"   % "hive-exec"     % "0.13.1-cdh5.3.8"),
       noHadoop("org.apache.hive"   % "hive-service"  % "0.13.1-cdh5.3.8")   // TODO: can we remove this?
