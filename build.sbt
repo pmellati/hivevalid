@@ -6,7 +6,6 @@ lazy val Version = new {
   val parquet       = "1.5.0-cdh5.3.8"
   val parquetFormat = "2.1.0-cdh5.3.8"
   val slf4j         = "1.7.5"
-  val log4j         = "1.2.17"
   val avro          = "1.7.6-cdh5.3.8"
   val zookeeper     = "3.4.5-cdh5.3.8"
   val guava         = "11.0.2"
@@ -18,7 +17,7 @@ lazy val Version = new {
 lazy val hivevalid = project
   .in(file("."))
   .settings(
-    version := "0.1.3",
+    version := "0.1.5",
     publishMavenStyle := false,
 
     scalaVersion := Version.scala,
@@ -82,7 +81,6 @@ lazy val hadoopCP = new {
     "com.twitter"                  % "parquet-format"            % Version.parquetFormat,
     "org.slf4j"                    % "slf4j-api"                 % Version.slf4j,
     "org.slf4j"                    % "slf4j-log4j12"             % Version.slf4j,
-    "log4j"                        % "log4j"                     % Version.log4j,
     "commons-beanutils"            % "commons-beanutils"         % "1.7.0",
     "commons-beanutils"            % "commons-beanutils-core"    % "1.8.0",
     "commons-cli"                  % "commons-cli"               % "1.2",

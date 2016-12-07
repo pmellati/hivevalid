@@ -3,13 +3,14 @@ package hivevalid
 import org.apache.hadoop.hive.ql.Driver
 import org.apache.hadoop.hive.ql.processors.CommandProcessorResponse
 import org.apache.hadoop.hive.ql.session.SessionState
+import org.slf4j.LoggerFactory
 
 import scala.concurrent.Await
 import scala.concurrent.duration.Duration
 
 object HiveValid {
   lazy val hiveConf =
-    Await.result(HiveSupport.initialize(log = x => println(s"Hive Initialization: $x")), Duration.Inf)
+    Await.result(HiveSupport.initialize(log = logger.info), Duration.Inf)
 
   def runMeta(query: String): CommandProcessorResponse = withDriver {
     _ run query
@@ -42,4 +43,6 @@ object HiveValid {
       SessionState.detachSession()
     }
   }
+
+  private val logger = LoggerFactory.getLogger(HiveValid.getClass)
 }
