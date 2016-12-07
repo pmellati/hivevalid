@@ -12,6 +12,7 @@ lazy val Version = new {
   val jackson       = "1.8.8"
   val jetty         = "6.1.26.cloudera.4"
   val asm           = "3.2"
+  val specs2        = "3.8.5"
 }
 
 lazy val hivevalid = project
@@ -45,7 +46,7 @@ lazy val hivevalid = project
 
     libraryDependencies ++= Seq(
       "org.scalaz" %% "scalaz-core" % Version.scalaz,
-      "org.specs2" %% "specs2-core" % "3.8.5" % "provided",
+      "org.specs2" %% "specs2-core" % Version.specs2 % "provided",
       noHadoop("org.apache.hadoop" % "hadoop-client" % Version.hadoop),
       noHadoop("org.apache.hive"   % "hive-exec"     % "0.13.1-cdh5.3.8"),
       noHadoop("org.apache.hive"   % "hive-service"  % "0.13.1-cdh5.3.8")   // TODO: can we remove this?
